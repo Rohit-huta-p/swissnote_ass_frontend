@@ -23,7 +23,7 @@ const Login = ({guestLogin, fetchUserDetails, setIsGuest}) => {
         try {
             const response = await axiosInstance.post('/api/user/login', login_data);
             console.log(response);
-            if (response.statusText === "OK") {
+
                 console.log("INSIDEEEEEEEEEE");
                 
                 const { token } = await response.data;
@@ -42,7 +42,7 @@ const Login = ({guestLogin, fetchUserDetails, setIsGuest}) => {
 
                 if(guestLogin)fetchUserDetails();
                 setIsLoggedIn(true);
-              }
+
               
             } catch (error) {
                 console.log(error);
