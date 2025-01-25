@@ -9,13 +9,14 @@ const Login = ({guestLogin, fetchUserDetails, setIsGuest}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const data = {email, password};
-    const {isLoading, user, setIsLoggedIn} = useContext(GlobalContext)
+    const {isLoading, setIsLoading, user, setIsLoggedIn} = useContext(GlobalContext)
 
     const navigate = useNavigate();
 
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         if(guestLogin) localStorage.clear();
         const login_data = {email, password};
         console.log(login_data);
@@ -42,6 +43,7 @@ const Login = ({guestLogin, fetchUserDetails, setIsGuest}) => {
 
                 if(guestLogin)fetchUserDetails();
                 setIsLoggedIn(true);
+                setIsLoading(false);
 
               
             } catch (error) {
@@ -51,9 +53,7 @@ const Login = ({guestLogin, fetchUserDetails, setIsGuest}) => {
             
     }
 
-    useEffect(() => {
 
-    }, [])
 
 
 

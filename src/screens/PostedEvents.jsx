@@ -16,16 +16,8 @@ const PostedEvents = ({openModal, setMessage, fetchEvents, yourEvents, setYourEv
     const {user, setUser} = useContext(GlobalContext)
     // essentials like isLoading, message
     const [ isLoading, setIsLoading] = useState(false)
-
-  
-    
-    // is<type>ModalOpen
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   
   
-    const [selectedEventId, setSelectedEventId] = useState(null);
     const location = useLocation();
  
   
